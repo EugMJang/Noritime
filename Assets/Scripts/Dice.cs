@@ -40,11 +40,27 @@ public class Dice : MonoBehaviour {
         for (int i = 0; i <= 20; i++)
         {
             // Pick up random value from 0 to 5 (All inclusive)
-            randomDiceSide = Random.Range(0, 5);
+            randomDiceSide = Random.Range(1, 625);
 
             // Set sprite to upper face of dice from array according to random value
-            rend.sprite = diceSides[randomDiceSide];
-
+            if (randomDiceSide >= 1 && randomDiceSide <= 72) {
+                rend.sprite = diceSides[0];
+            }
+            else if (randomDiceSide >= 73 && randomDiceSide <= 288) {
+                rend.sprite = diceSides[1];
+            }
+            else if (randomDiceSide >= 289 && randomDiceSide <= 504) {
+                rend.sprite = diceSides[2];
+            }
+            else if (randomDiceSide >= 505 && randomDiceSide <= 585) {
+                rend.sprite = diceSides[3];
+            }
+            else if (randomDiceSide >= 586 && randomDiceSide <= 601) {
+                rend.sprite = diceSides[4];
+            }
+            else if (randomDiceSide >= 602 && randomDiceSide <= 625) {
+                rend.sprite = diceSides[5];
+            }
             // Pause before next itteration
             yield return new WaitForSeconds(0.05f);
         }
