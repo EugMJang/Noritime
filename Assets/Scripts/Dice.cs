@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using UnityEngine;
 
 public class Dice : MonoBehaviour {
@@ -25,6 +26,30 @@ public class Dice : MonoBehaviour {
         StartCoroutine("RollTheDice");
     }
 
+    private int returnSide (int diceValue) {
+        if (diceValue >= 1 && diceValue <= 72) {
+            return -1;
+        }
+        else if (diceValue >= 73 && diceValue <= 288) {
+            return 1;
+        }
+        else if (diceValue >= 289 && diceValue <= 504) {
+            return 2;
+        }
+        else if (diceValue >= 505 && diceValue <= 585) {
+            return 3;
+        }
+        else if (diceValue >= 586 && diceValue <= 601) {
+            return 4;
+        }
+        else if (diceValue >= 602 && diceValue <= 625) {
+            return 5;
+        }
+        else {
+            throw new System.ArgumentException("Invalid die value");
+        }
+    }
+
     // Coroutine that rolls the dice
     private IEnumerator RollTheDice()
     {
@@ -40,26 +65,13 @@ public class Dice : MonoBehaviour {
         for (int i = 0; i <= 20; i++)
         {
             // Pick up random value from 0 to 5 (All inclusive)
-            randomDiceSide = Random.Range(1, 625);
+            randomDiceSide = UnityEngine.Random.Range(1, 625);
 
             // Set sprite to upper face of dice from array according to random value
-            if (randomDiceSide >= 1 && randomDiceSide <= 72) {
-                rend.sprite = diceSides[0];
-            }
-            else if (randomDiceSide >= 73 && randomDiceSide <= 288) {
-                rend.sprite = diceSides[1];
-            }
-            else if (randomDiceSide >= 289 && randomDiceSide <= 504) {
-                rend.sprite = diceSides[2];
-            }
-            else if (randomDiceSide >= 505 && randomDiceSide <= 585) {
-                rend.sprite = diceSides[3];
-            }
-            else if (randomDiceSide >= 586 && randomDiceSide <= 601) {
-                rend.sprite = diceSides[4];
-            }
-            else if (randomDiceSide >= 602 && randomDiceSide <= 625) {
+            if (returnSide(randomDiceSide) == -1) {
                 rend.sprite = diceSides[5];
+            } else {
+                rend.sprite = diceSides[returnSide(randomDiceSide) - 1];
             }
             // Pause before next itteration
             yield return new WaitForSeconds(0.05f);
@@ -67,9 +79,7 @@ public class Dice : MonoBehaviour {
 
         // Assigning final side so you can use this value later in your game
         // for player movement for example
-        finalSide = randomDiceSide + 1;
-
-        // Show final dice value in Console
-        Debug.Log(finalSide);
+        finalSide = returnSide(randomDiceSide);
+        MoveScript.add(finalSide);
     }
 }
