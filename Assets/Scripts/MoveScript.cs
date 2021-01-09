@@ -30,20 +30,36 @@ public class MoveScript : MonoBehaviour
     }
 
     public void clicked(int side) {
-        if (side == -1 && numTimes(-1) > 0) {
-            backone.text = "x" + (numTimes(-1) - 1);
-        } else if (side == 1 && numTimes(1) > 0) {
-            one.text = "x" + (numTimes(1) - 1);
-        } else if (side == 2 && numTimes(2) > 0) {
-            two.text = "x" + (numTimes(2) - 1);
-        } else if (side == 3 && numTimes(3) > 0) {
-            three.text = "x" + (numTimes(3) - 1);
-        } else if (side == 4 && numTimes(4) > 0) {
-            four.text = "x" + (numTimes(4) - 1);
-        } else if (side == 5 && numTimes(5) > 0) {
-            five.text = "x" + (numTimes(5) - 1);
+        if (turnController.currentPlayer.GetComponent<Player>().selectedPiece != null) {
+            int moveNum = 0;
+            if (side == -1 && numTimes(-1) > 0) {
+                backone.text = "x" + (numTimes(-1) - 1);
+                moveNum = -1;
+            } else if (side == 1 && numTimes(1) > 0) {
+                one.text = "x" + (numTimes(1) - 1);
+                moveNum = 1;
+            } else if (side == 2 && numTimes(2) > 0) {
+                two.text = "x" + (numTimes(2) - 1);
+                moveNum = 2;
+            } else if (side == 3 && numTimes(3) > 0) {
+                three.text = "x" + (numTimes(3) - 1);
+                moveNum = 3;
+            } else if (side == 4 && numTimes(4) > 0) {
+                four.text = "x" + (numTimes(4) - 1);
+                moveNum = 4;
+            } else if (side == 5 && numTimes(5) > 0) {
+                five.text = "x" + (numTimes(5) - 1);
+                moveNum = 5;
+            }
+            
+            if (moveNum != 0) {
+                turnController.currentPlayer.GetComponent<Player>().selectedPiece.GetComponent<Piece>().move(moveNum);
+
+                if (numTimes(-1) + numTimes(1) + numTimes(2) + numTimes(3) + numTimes(4) + numTimes(5) == 0) {
+                    turnController.switchTurns();
+                }
+            }
         }
-        Debug.Log("hello?");
     }
 
     public static int numTimes(int side) {

@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Dice : MonoBehaviour {
+
+    private GameObject descriptionText;
 
     // Array of dice sides sprites to load from Resources folder
     private Sprite[] diceSides;
@@ -18,6 +21,8 @@ public class Dice : MonoBehaviour {
 
         // Load dice sides sprites to array from DiceSides subfolder of Resources folder
         diceSides = Resources.LoadAll<Sprite>("DiceSides/");
+
+        descriptionText = GameObject.Find("DescriptionText");
 	}
 	
     // If you left click over the dice then RollTheDice coroutine is started
@@ -26,6 +31,7 @@ public class Dice : MonoBehaviour {
         StartCoroutine("RollTheDice");
     }
 
+    // Returns the side that corresponds with the right probability.
     private int returnSide (int diceValue) {
         if (diceValue >= 1 && diceValue <= 72) {
             return -1;
@@ -53,6 +59,10 @@ public class Dice : MonoBehaviour {
     // Coroutine that rolls the dice
     private IEnumerator RollTheDice()
     {
+        //Make all pieces unselected
+        GameObject.Find("BluePlayer").GetComponent<Player>().selectedPiece = null;
+        GameObject.Find("RedPlayer").GetComponent<Player>().selectedPiece = null;
+
         // Variable to contain random dice side number.
         // It needs to be assigned. Let it be 0 initially
         int randomDiceSide = 0;
@@ -80,6 +90,13 @@ public class Dice : MonoBehaviour {
         // Assigning final side so you can use this value later in your game
         // for player movement for example
         finalSide = returnSide(randomDiceSide);
-        MoveScript.add(finalSide);
+        
+        if (finalSide == -1 && !turnController.currentPlayer.GetComponent<Player>().canBackOne()) {
+            turnController.switchTurns();
+            descriptionText.GetComponent<Text>().text = "You weren't able to move!";
+        }
+        else{
+            MoveScript.add(finalSide);
+        }
     }
 }
