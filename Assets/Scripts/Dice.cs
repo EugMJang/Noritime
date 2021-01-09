@@ -59,44 +59,48 @@ public class Dice : MonoBehaviour {
     // Coroutine that rolls the dice
     private IEnumerator RollTheDice()
     {
-        //Make all pieces unselected
-        GameObject.Find("BluePlayer").GetComponent<Player>().selectedPiece = null;
-        GameObject.Find("RedPlayer").GetComponent<Player>().selectedPiece = null;
+        if (turnController.currentPlayer.GetComponent<Player>().canRoll) {
+            turnController.currentPlayer.GetComponent<Player>().canRoll = false;
+            // Variable to contain random dice side number.
+            // It needs to be assigned. Let it be 0 initially
+            int randomDiceSide = 0;
 
-        // Variable to contain random dice side number.
-        // It needs to be assigned. Let it be 0 initially
-        int randomDiceSide = 0;
+            // Final side or value that dice reads in the end of coroutine
+            int finalSide = 0;
 
-        // Final side or value that dice reads in the end of coroutine
-        int finalSide = 0;
+            // Loop to switch dice sides ramdomly
+            // before final side appears. 20 itterations here.
+            for (int i = 0; i <= 20; i++)
+            {
+                // Pick up random value from 0 to 5 (All inclusive)
+                randomDiceSide = UnityEngine.Random.Range(1, 625);
 
-        // Loop to switch dice sides ramdomly
-        // before final side appears. 20 itterations here.
-        for (int i = 0; i <= 20; i++)
-        {
-            // Pick up random value from 0 to 5 (All inclusive)
-            randomDiceSide = UnityEngine.Random.Range(1, 625);
-
-            // Set sprite to upper face of dice from array according to random value
-            if (returnSide(randomDiceSide) == -1) {
-                rend.sprite = diceSides[5];
-            } else {
-                rend.sprite = diceSides[returnSide(randomDiceSide) - 1];
+                // Set sprite to upper face of dice from array according to random value
+                if (returnSide(randomDiceSide) == -1) {
+                    rend.sprite = diceSides[5];
+                } else {
+                    rend.sprite = diceSides[returnSide(randomDiceSide) - 1];
+                }
+                // Pause before next itteration
+                yield return new WaitForSeconds(0.05f);
             }
-            // Pause before next itteration
-            yield return new WaitForSeconds(0.05f);
-        }
 
-        // Assigning final side so you can use this value later in your game
-        // for player movement for example
-        finalSide = returnSide(randomDiceSide);
-        
-        if (finalSide == -1 && !turnController.currentPlayer.GetComponent<Player>().canBackOne()) {
-            turnController.switchTurns();
-            descriptionText.GetComponent<Text>().text = "You weren't able to move!";
-        }
-        else{
-            MoveScript.add(finalSide);
+            // Assigning final side so you can use this value later in your game
+            // for player movement for example
+            finalSide = returnSide(randomDiceSide);
+
+            if (finalSide == 4 || finalSide == 5) {
+                turnController.currentPlayer.GetComponent<Player>().canRoll = true;
+                turnController.currentPlayer.GetComponent<Player>().numMoves += 1;
+            }
+            
+            if (finalSide == -1 && !turnController.currentPlayer.GetComponent<Player>().canBackOne()) {
+                turnController.switchTurns();
+                descriptionText.GetComponent<Text>().text = "You weren't able to move!";
+            }
+            else{
+                MoveScript.add(finalSide);
+            }
         }
     }
 }

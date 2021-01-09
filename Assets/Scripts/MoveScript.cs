@@ -31,11 +31,14 @@ public class MoveScript : MonoBehaviour
     }
 
     public void clicked(int side) {
+        Piece piece = turnController.currentPlayer.GetComponent<Player>().selectedPiece.GetComponent<Piece>();
         if (turnController.currentPlayer.GetComponent<Player>().selectedPiece != null) {
             int moveNum = 0;
             if (side == -1 && numTimes(-1) > 0) {
-                backone.text = "x" + (numTimes(-1) - 1);
-                moveNum = -1;
+                if (piece.position != -1) {
+                    backone.text = "x" + (numTimes(-1) - 1);
+                    moveNum = -1;
+                }
             } else if (side == 1 && numTimes(1) > 0) {
                 one.text = "x" + (numTimes(1) - 1);
                 moveNum = 1;
@@ -54,10 +57,11 @@ public class MoveScript : MonoBehaviour
             }
             
             if (moveNum != 0) {
-                turnController.currentPlayer.GetComponent<Player>().selectedPiece.GetComponent<Piece>().move(moveNum);
+                //piece.position = piece.position + moveNum;
                 descriptionText.text = $"You moved {moveNum} spaces!";
 
-                if (numTimes(-1) + numTimes(1) + numTimes(2) + numTimes(3) + numTimes(4) + numTimes(5) == 0) {
+                turnController.currentPlayer.GetComponent<Player>().numMoves -= 1;
+                if (turnController.currentPlayer.GetComponent<Player>().numMoves == 0) {
                     turnController.switchTurns();
                 }
             }

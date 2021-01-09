@@ -8,10 +8,16 @@ public class turnController : MonoBehaviour
     public static GameObject currentPlayer;
    void Start()
     {
-        currentPlayer = GameObject.Find("RedPlayer");
+        currentPlayer = GameObject.Find("BluePlayer");
     }
 
     public static void switchTurns() {
+        if (currentPlayer.GetComponent<Player>().selectedPiece != null) {
+            currentPlayer.GetComponent<Player>().selectedPiece.GetComponent<Piece>().highlight(false);
+            currentPlayer.GetComponent<Player>().selectedPiece = null;
+        }
+        currentPlayer.GetComponent<Player>().numMoves = 1;
+        currentPlayer.GetComponent<Player>().canRoll = true;
         if (currentPlayer == GameObject.Find("RedPlayer")) {
             currentPlayer = GameObject.Find("BluePlayer");
         } else {

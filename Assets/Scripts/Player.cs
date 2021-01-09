@@ -6,6 +6,9 @@ public class Player : MonoBehaviour
 {
     [HideInInspector]
     public GameObject selectedPiece;
+    [HideInInspector]
+    public bool canRoll = true;
+    public int numMoves = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,11 +41,11 @@ public class Player : MonoBehaviour
 
     public bool canBackOne() {
         foreach (Transform child in transform) {
-            if (child.gameObject.GetComponent<Piece>().position == 0) {
-                return false;
+            if (child.gameObject.GetComponent<Piece>().position != -1) {
+                return true;
             }
         }
-        return true;
+        return false;
     }
     // Update is called once per frame
     void Update()
