@@ -13,6 +13,7 @@ public class Piece : MonoBehaviour
 
     public bool isFinished;
 
+
     public Transform[] path0;
     public Transform[] path1;
     public Transform[] path2;
@@ -111,6 +112,13 @@ public class Piece : MonoBehaviour
             return path3;
         } else {
             throw new ArgumentException("Not a valid path");
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (gameObject.tag == "BluePieces" && other.tag == "BluePieces") {
+            Debug.Log("hit detected");
         }
     }
 
