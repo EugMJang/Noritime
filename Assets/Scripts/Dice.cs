@@ -34,22 +34,22 @@ public class Dice : MonoBehaviour {
     // Returns the side that corresponds with the right probability.
     private int returnSide (int diceValue) {
         if (diceValue >= 1 && diceValue <= 72) {
-            return -1;
-        }
-        else if (diceValue >= 73 && diceValue <= 288) {
             return 1;
         }
-        else if (diceValue >= 289 && diceValue <= 504) {
+        else if (diceValue >= 73 && diceValue <= 288) {
             return 2;
         }
-        else if (diceValue >= 505 && diceValue <= 585) {
+        else if (diceValue >= 289 && diceValue <= 504) {
             return 3;
         }
-        else if (diceValue >= 586 && diceValue <= 601) {
+        else if (diceValue >= 505 && diceValue <= 585) {
             return 4;
         }
-        else if (diceValue >= 602 && diceValue <= 625) {
+        else if (diceValue >= 586 && diceValue <= 601) {
             return 5;
+        }
+        else if (diceValue >= 602 && diceValue <= 625) {
+            return -1;
         }
         else {
             throw new System.ArgumentException("Invalid die value");
