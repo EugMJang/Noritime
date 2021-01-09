@@ -868,6 +868,7 @@ GameObject:
   - component: {fileID: 331826941}
   - component: {fileID: 331826943}
   - component: {fileID: 331826942}
+  - component: {fileID: 331826944}
   m_Layer: 0
   m_Name: red2
   m_TagString: RedPieces
@@ -982,6 +983,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6666667, y: 0.6666667}
   m_EdgeRadius: 0
+--- !u!114 &331826944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331826939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9e7387c9315a64886a40d4e9c87686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &338621002
 GameObject:
   m_ObjectHideFlags: 0
@@ -1282,6 +1295,7 @@ GameObject:
   - component: {fileID: 480147849}
   - component: {fileID: 480147851}
   - component: {fileID: 480147850}
+  - component: {fileID: 480147852}
   m_Layer: 0
   m_Name: red3
   m_TagString: RedPieces
@@ -1396,6 +1410,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6666667, y: 0.6666667}
   m_EdgeRadius: 0
+--- !u!114 &480147852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480147847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9e7387c9315a64886a40d4e9c87686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &486692207
 GameObject:
   m_ObjectHideFlags: 0
@@ -2163,6 +2189,7 @@ GameObject:
   - component: {fileID: 773455525}
   - component: {fileID: 773455527}
   - component: {fileID: 773455526}
+  - component: {fileID: 773455528}
   m_Layer: 0
   m_Name: blue2
   m_TagString: BluePieces
@@ -2277,6 +2304,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &773455528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773455523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9e7387c9315a64886a40d4e9c87686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &777374884
 GameObject:
   m_ObjectHideFlags: 0
@@ -3039,6 +3078,7 @@ GameObject:
   - component: {fileID: 1268627556}
   - component: {fileID: 1268627558}
   - component: {fileID: 1268627557}
+  - component: {fileID: 1268627559}
   m_Layer: 0
   m_Name: blue4
   m_TagString: BluePieces
@@ -3153,6 +3193,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1268627559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268627554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9e7387c9315a64886a40d4e9c87686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1278424222
 GameObject:
   m_ObjectHideFlags: 0
@@ -3165,6 +3217,7 @@ GameObject:
   - component: {fileID: 1278424224}
   - component: {fileID: 1278424226}
   - component: {fileID: 1278424225}
+  - component: {fileID: 1278424227}
   m_Layer: 0
   m_Name: blue3
   m_TagString: BluePieces
@@ -3279,6 +3332,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1278424227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278424222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9e7387c9315a64886a40d4e9c87686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1300982464
 GameObject:
   m_ObjectHideFlags: 0
@@ -3606,6 +3671,7 @@ GameObject:
   - component: {fileID: 1407942068}
   - component: {fileID: 1407942071}
   - component: {fileID: 1407942070}
+  - component: {fileID: 1407942072}
   m_Layer: 0
   m_Name: red1
   m_TagString: RedPieces
@@ -3720,6 +3786,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6666667, y: 0.6666667}
   m_EdgeRadius: 0
+--- !u!114 &1407942072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407942067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9e7387c9315a64886a40d4e9c87686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1424432329
 GameObject:
   m_ObjectHideFlags: 0
@@ -4328,6 +4406,7 @@ GameObject:
   - component: {fileID: 1616859455}
   - component: {fileID: 1616859458}
   - component: {fileID: 1616859457}
+  - component: {fileID: 1616859459}
   m_Layer: 0
   m_Name: blue1
   m_TagString: BluePieces
@@ -4442,6 +4521,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1616859459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616859454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9e7387c9315a64886a40d4e9c87686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1656833214
 GameObject:
   m_ObjectHideFlags: 0
@@ -5555,6 +5646,7 @@ GameObject:
   - component: {fileID: 2099552844}
   - component: {fileID: 2099552846}
   - component: {fileID: 2099552845}
+  - component: {fileID: 2099552847}
   m_Layer: 0
   m_Name: red4
   m_TagString: RedPieces
@@ -5669,6 +5761,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6666667, y: 0.6666667}
   m_EdgeRadius: 0
+--- !u!114 &2099552847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099552842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9e7387c9315a64886a40d4e9c87686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2122030042
 GameObject:
   m_ObjectHideFlags: 0
