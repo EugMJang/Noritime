@@ -31,8 +31,8 @@ public class MoveScript : MonoBehaviour
     }
 
     public void clicked(int side) {
-        Piece piece = turnController.currentPlayer.GetComponent<Player>().selectedPiece.GetComponent<Piece>();
         if (turnController.currentPlayer.GetComponent<Player>().selectedPiece != null) {
+            Piece piece = turnController.currentPlayer.GetComponent<Player>().selectedPiece.GetComponent<Piece>();
             int moveNum = 0;
             if (side == -1 && numTimes(-1) > 0) {
                 if (piece.position != -1) {
@@ -57,7 +57,7 @@ public class MoveScript : MonoBehaviour
             }
             
             if (moveNum != 0) {
-                //piece.position = piece.position + moveNum;
+                piece.position = piece.position + moveNum;
                 descriptionText.text = $"You moved {moveNum} spaces!";
 
                 turnController.currentPlayer.GetComponent<Player>().numMoves -= 1;
