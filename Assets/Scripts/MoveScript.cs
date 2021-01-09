@@ -12,6 +12,7 @@ public class MoveScript : MonoBehaviour
     private static Text three;
     private static Text four;
     private static Text five;
+    private static Text descriptionText;
 
     public static void add(int side) {
         if (side == -1) {
@@ -54,6 +55,7 @@ public class MoveScript : MonoBehaviour
             
             if (moveNum != 0) {
                 turnController.currentPlayer.GetComponent<Player>().selectedPiece.GetComponent<Piece>().move(moveNum);
+                descriptionText.text = $"You moved {moveNum} spaces!";
 
                 if (numTimes(-1) + numTimes(1) + numTimes(2) + numTimes(3) + numTimes(4) + numTimes(5) == 0) {
                     turnController.switchTurns();
@@ -88,6 +90,7 @@ public class MoveScript : MonoBehaviour
         three = GameObject.Find("3 times").GetComponent<Text>();
         four = GameObject.Find("4 times").GetComponent<Text>();
         five = GameObject.Find("5 times").GetComponent<Text>();
+        descriptionText = GameObject.Find("DescriptionText").GetComponent<Text>();
     }
 
     // Update is called once per frame
