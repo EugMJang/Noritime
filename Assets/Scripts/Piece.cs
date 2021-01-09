@@ -119,6 +119,19 @@ public class Piece : MonoBehaviour
     {
         if (gameObject.tag == "BluePieces" && other.tag == "BluePieces") {
             Debug.Log("hit detected");
+            Destroy(other.gameObject);
+        }
+        if (gameObject.tag == "RedPieces" && other.tag == "RedPieces") {
+            Debug.Log("hit detected");
+            Destroy(other.gameObject);
+        }
+        if (gameObject.tag == "RedPieces" && other.tag == "BluePieces") {
+            Debug.Log("hit detected");
+            Destroy(other.gameObject);
+        }
+        if (gameObject.tag == "BluePieces" && other.tag == "RedPieces") {
+            Debug.Log("hit detected");
+            Destroy(other.gameObject);
         }
     }
 
