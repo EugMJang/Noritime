@@ -61,6 +61,7 @@ public class Dice : MonoBehaviour {
     {
         if (turnController.currentPlayer.GetComponent<Player>().canRoll) {
             turnController.currentPlayer.GetComponent<Player>().canRoll = false;
+
             // Variable to contain random dice side number.
             // It needs to be assigned. Let it be 0 initially
             int randomDiceSide = 0;
@@ -103,4 +104,19 @@ public class Dice : MonoBehaviour {
             }
         }
     }
+
+    void Update() {
+        if (Input.GetKey(KeyCode.Alpha1)) {
+            MoveScript.add(1);
+        } else if (Input.GetKey(KeyCode.Alpha2)) {
+            MoveScript.add(2);
+        } else if (Input.GetKey(KeyCode.Alpha3)) {
+            MoveScript.add(3);
+        } else if (Input.GetKey(KeyCode.Alpha4)) {
+            MoveScript.add(4);
+        } else if (Input.GetKey(KeyCode.Alpha5)) {
+            MoveScript.add(5);
+        }
+    }
 }
+

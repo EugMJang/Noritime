@@ -18,6 +18,9 @@ public class Piece : MonoBehaviour
     public Transform[] path3;
     
     private Vector3 starting_position;
+
+    private Sprite[] redSprites;
+    private Sprite[] blueSprites;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +29,9 @@ public class Piece : MonoBehaviour
         path = 0;
         canMove = false;
         numPieces = 1;
+
+        redSprites = Resources.LoadAll<Sprite>("RedSprites/");
+        blueSprites = Resources.LoadAll<Sprite>("BlueSprites/");
     }
 
     public void highlight(bool doHighlight) {
@@ -87,6 +93,10 @@ public class Piece : MonoBehaviour
                     } else {
                         Destroy(gameObject);
                         Debug.Log("Finished!");
+                        turnController.currentPlayer.GetComponent<Player>().numMoves -= 1;
+                        if (turnController.currentPlayer.GetComponent<Player>().numMoves == 0) {
+                            turnController.switchTurns();
+                        }
                         return;
                     }
                 }
@@ -136,28 +146,75 @@ public class Piece : MonoBehaviour
         if (gameObject == turnController.currentPlayer.GetComponent<Player>().selectedPiece) {
             if (other.gameObject.GetComponent<Piece>().position != -1) {
                 if (gameObject.tag == other.tag) {
-                    Debug.Log("hit detected");
-                    transform.SetParent(other.transform);
-                    gameObject.SetActive(false);
+                    if (position == other.gameObject.GetComponent<Piece>().position) {
+                        Debug.Log("hit detected");
+                        other.transform.SetParent(transform);
+                        if (other.gameObject.GetComponent<Piece>().numPieces > 1) {
+                            for (int i = 0; i < other.transform.childCount;) {
+                                other.transform.GetChild(i).SetParent(transform);
+                            }
+                        }
+                        other.gameObject.SetActive(false);
+                        numPieces += other.gameObject.GetComponent<Piece>().numPieces;
+                    }
                 }
                 else {
                     if (position == other.gameObject.GetComponent<Piece>().position) {
                         Debug.Log("hit detected");
+                        for (int i = 0; i < other.transform.childCount; i++) {
+                            Transform child = other.transform.GetChild(i);
+                            child.gameObject.GetComponent<Piece>().position = -1;
+                            child.gameObject.GetComponent<Piece>().doneMoving = false;
+                            child.gameObject.GetComponent<Piece>().numPieces = 1;
+                            child.gameObject.SetActive(true);
+                            if (child.tag == "RedPieces") {
+                                child.SetParent(GameObject.Find("RedPlayer").transform);
+                            } else {
+                                child.SetParent(GameObject.Find("BluePlayer").transform);
+                            }
+                            i--;
+                        }
+                        other.gameObject.GetComponent<Piece>().numPieces = 1;
                         other.gameObject.GetComponent<Piece>().position = -1;
                         other.gameObject.GetComponent<Piece>().doneMoving = false;
-                        turnController.currentPlayer.GetComponent<Player>().numMoves += 1;
-                        turnController.currentPlayer.GetComponent<Player>().canRoll = true;
+                        if (MoveScript.moveNum != 4 && MoveScript.moveNum != 5) {
+                            turnController.currentPlayer.GetComponent<Player>().numMoves += 1;
+                            turnController.currentPlayer.GetComponent<Player>().canRoll = true;
+                        }
                     }
                 }
             }
         }
     }
 
+    private void updateSprites() {
+        SpriteRenderer rend = GetComponent<SpriteRenderer>();
+        if (gameObject == turnController.currentPlayer.GetComponent<Player>().selectedPiece) {
+        }
+        if (gameObject.tag == "RedPieces") {
+            rend.sprite = redSprites[numPieces - 1];
+        } else {
+            rend.sprite = blueSprites[numPieces - 1];
+        }
+
+    }
+
     // Update is called once per frame
     void Update()
     {
+        //Adjust collider to be within bounds of sprite
+        var sprite = FindObjectOfType<SpriteRenderer>();
+        var collider = FindObjectOfType<BoxCollider2D>();
+
+        collider.offset = new Vector2(0, 0);
+        collider.size = new Vector3(sprite.bounds.size.x / transform.lossyScale.x,
+                                     sprite.bounds.size.y / transform.lossyScale.y,
+                                     sprite.bounds.size.z / transform.lossyScale.z);
+
         if (!doneMoving){
             move();
         }
+        
+        updateSprites();
     }
 }
