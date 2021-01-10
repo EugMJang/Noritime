@@ -995,7 +995,6 @@ MonoBehaviour:
   - {fileID: 2122030043}
   - {fileID: 118523671}
   - {fileID: 2019370575}
-  - {fileID: 784792234}
   doneMoving: 0
 --- !u!61 &331826943
 BoxCollider2D:
@@ -1319,7 +1318,6 @@ MonoBehaviour:
   - {fileID: 2122030043}
   - {fileID: 118523671}
   - {fileID: 2019370575}
-  - {fileID: 784792234}
   doneMoving: 0
 --- !u!61 &480147851
 BoxCollider2D:
@@ -2209,7 +2207,6 @@ MonoBehaviour:
   - {fileID: 2122030043}
   - {fileID: 118523671}
   - {fileID: 2019370575}
-  - {fileID: 784792234}
   doneMoving: 0
 --- !u!61 &773455527
 BoxCollider2D:
@@ -2287,36 +2284,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1365934914}
   m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &784792233
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 784792234}
-  m_Layer: 0
-  m_Name: 16
-  m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &784792234
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 784792233}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.47, y: -4.67, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2081918244}
-  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &822467296
 GameObject:
@@ -2968,7 +2935,6 @@ MonoBehaviour:
   - {fileID: 2122030043}
   - {fileID: 118523671}
   - {fileID: 2019370575}
-  - {fileID: 784792234}
   doneMoving: 0
 --- !u!61 &1268627558
 BoxCollider2D:
@@ -3154,7 +3120,6 @@ MonoBehaviour:
   - {fileID: 2122030043}
   - {fileID: 118523671}
   - {fileID: 2019370575}
-  - {fileID: 784792234}
   doneMoving: 0
 --- !u!61 &1278424226
 BoxCollider2D:
@@ -3594,7 +3559,6 @@ MonoBehaviour:
   - {fileID: 2122030043}
   - {fileID: 118523671}
   - {fileID: 2019370575}
-  - {fileID: 784792234}
   doneMoving: 0
 --- !u!61 &1407942071
 BoxCollider2D:
@@ -4286,7 +4250,6 @@ MonoBehaviour:
   - {fileID: 2122030043}
   - {fileID: 118523671}
   - {fileID: 2019370575}
-  - {fileID: 784792234}
   doneMoving: 0
 --- !u!61 &1616859458
 BoxCollider2D:
@@ -5564,7 +5527,6 @@ Transform:
   - {fileID: 2122030043}
   - {fileID: 118523671}
   - {fileID: 2019370575}
-  - {fileID: 784792234}
   m_Father: {fileID: 1395500961}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5705,7 +5667,6 @@ MonoBehaviour:
   - {fileID: 2122030043}
   - {fileID: 118523671}
   - {fileID: 2019370575}
-  - {fileID: 784792234}
   doneMoving: 0
 --- !u!61 &2099552846
 BoxCollider2D:
