@@ -26,7 +26,6 @@ public class Piece : MonoBehaviour
     void Start()
     {
         starting_position = transform.position;
-        Debug.Log(gameObject + " " + transform.position + " " + starting_position);
         position = -1;
         path = 0;
         canMove = false;
@@ -51,7 +50,6 @@ public class Piece : MonoBehaviour
     public void move() {
         if (currentPos != position) {
             if (position == -1) {
-                Debug.Log(transform.position + " " + starting_position);
                 transform.position = Vector2.MoveTowards(transform.position, starting_position,
                 moveSpeed * Time.deltaTime);
                 if (transform.position == starting_position) {
@@ -171,7 +169,7 @@ public class Piece : MonoBehaviour
                     }
                 }
                 else {
-                    if (position == other.gameObject.GetComponent<Piece>().position) {
+                    if (position == other.gameObject.GetComponent<Piece>().position && path == other.gameObject.GetComponent<Piece>().path) {
                         for (int i = 0; i < other.transform.childCount; i++) {
                             Transform child = other.transform.GetChild(i);
                             child.gameObject.GetComponent<Piece>().position = -1;
