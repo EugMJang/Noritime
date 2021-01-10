@@ -93,9 +93,9 @@ public class Piece : MonoBehaviour
                         currIndex = 13;
                     } else {
                         if (gameObject.tag == "RedPieces") {
-                            Score.redScore +=1;
+                            Score.redScore += numPieces;
                         } else {
-                            Score.blueScore +=1;
+                            Score.blueScore += numPieces;
                         }
                         Destroy(gameObject);
                         Debug.Log("Finished!");
