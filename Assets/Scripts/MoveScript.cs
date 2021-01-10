@@ -33,6 +33,7 @@ public class MoveScript : MonoBehaviour
     public static int moveNum = 0;
     public void clicked(int side) {
         if (turnController.currentPlayer.GetComponent<Player>().selectedPiece != null) {
+            moveNum = 0;
             Piece piece = turnController.currentPlayer.GetComponent<Player>().selectedPiece.GetComponent<Piece>();
             if (side == -1 && numTimes(-1) > 0) {
                 if (piece.position != -1) {
