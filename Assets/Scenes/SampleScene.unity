@@ -2541,6 +2541,7 @@ GameObject:
   - component: {fileID: 1239433041}
   - component: {fileID: 1239433043}
   - component: {fileID: 1239433042}
+  - component: {fileID: 1239433044}
   m_Layer: 5
   m_Name: BlueScore
   m_TagString: Untagged
@@ -2599,7 +2600,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Blue:0
+  m_Text: '
 
 '
 --- !u!222 &1239433043
@@ -2610,6 +2611,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1239433040}
   m_CullTransparentMesh: 0
+--- !u!114 &1239433044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239433040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4633705c3a084d4eba6326471a64778, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1268627554
 GameObject:
   m_ObjectHideFlags: 0
@@ -4355,6 +4368,7 @@ GameObject:
   - component: {fileID: 1694627340}
   - component: {fileID: 1694627342}
   - component: {fileID: 1694627341}
+  - component: {fileID: 1694627343}
   m_Layer: 5
   m_Name: RedScore
   m_TagString: Untagged
@@ -4413,9 +4427,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Red:0
-
-'
+  m_Text: 
 --- !u!222 &1694627342
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4424,6 +4436,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1694627339}
   m_CullTransparentMesh: 0
+--- !u!114 &1694627343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694627339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4633705c3a084d4eba6326471a64778, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1706237300
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Piece : MonoBehaviour
 {
@@ -91,6 +92,11 @@ public class Piece : MonoBehaviour
                         path = 0;
                         currIndex = 13;
                     } else {
+                        if (gameObject.tag == "RedPieces") {
+                            Score.redScore +=1;
+                        } else {
+                            Score.blueScore +=1;
+                        }
                         Destroy(gameObject);
                         Debug.Log("Finished!");
                         turnController.currentPlayer.GetComponent<Player>().numMoves -= 1;
