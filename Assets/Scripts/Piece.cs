@@ -153,7 +153,6 @@ public class Piece : MonoBehaviour
             if (other.gameObject.GetComponent<Piece>().position != -1) {
                 if (gameObject.tag == other.tag) {
                     if (position == other.gameObject.GetComponent<Piece>().position) {
-                        Debug.Log("hit detected");
                         other.transform.SetParent(transform);
                         if (other.gameObject.GetComponent<Piece>().numPieces > 1) {
                             for (int i = 0; i < other.transform.childCount;) {
@@ -166,7 +165,6 @@ public class Piece : MonoBehaviour
                 }
                 else {
                     if (position == other.gameObject.GetComponent<Piece>().position) {
-                        Debug.Log("hit detected");
                         for (int i = 0; i < other.transform.childCount; i++) {
                             Transform child = other.transform.GetChild(i);
                             child.gameObject.GetComponent<Piece>().position = -1;
