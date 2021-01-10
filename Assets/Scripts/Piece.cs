@@ -121,16 +121,6 @@ public class Piece : MonoBehaviour
                 }
             }
         } else if (position != -1) {
-            if (position == 4 && path == 0) {
-                path = 1;
-                currIndex = -1;
-            } else if (position == 7 && path == 1) {
-                path = 2;
-                currIndex = -1;
-            } else if (position == 9 && path == 0) {
-                path = 3;
-                currIndex = -1;
-            }
             turnController.currentPlayer.GetComponent<Player>().numMoves -= 1;
             if (turnController.currentPlayer.GetComponent<Player>().numMoves == 0) {
                 turnController.switchTurns();
@@ -138,6 +128,19 @@ public class Piece : MonoBehaviour
             doneMoving = true;
         }
     }
+    public void changePath() {
+        if (position == 4 && path == 0) {
+            path = 1;
+            currIndex = -1;
+        } else if (position == 7 && path == 1) {
+            path = 2;
+            currIndex = -1;
+        } else if (position == 9 && path == 0) {
+            path = 3;
+            currIndex = -1;
+        }
+    }
+
     public Transform[] currentPath() {
         if (path == 0) {
             return path0;
@@ -154,10 +157,12 @@ public class Piece : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log(position + " " + other.gameObject.GetComponent<Piece>().position);
+        Debug.Log(path + " " + other.gameObject.GetComponent<Piece>().path);
         if (gameObject == turnController.currentPlayer.GetComponent<Player>().selectedPiece) {
             if (other.gameObject.GetComponent<Piece>().position != -1) {
                 if (gameObject.tag == other.tag) {
-                    if (position == other.gameObject.GetComponent<Piece>().position) {
+                    if (position == other.gameObject.GetComponent<Piece>().position && path == other.gameObject.GetComponent<Piece>().path) {
                         other.transform.SetParent(transform);
                         if (other.gameObject.GetComponent<Piece>().numPieces > 1) {
                             for (int i = 0; i < other.transform.childCount;) {
