@@ -1,4 +1,4 @@
-# Yutnori
+# Noritime
 Noritime is an online recreation of the traditional Korean game Yutnori (윳놀이) for local multiplayer.
 
 ## Usage
