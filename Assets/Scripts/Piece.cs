@@ -26,6 +26,7 @@ public class Piece : MonoBehaviour
     void Start()
     {
         starting_position = transform.position;
+        Debug.Log(gameObject + " " + transform.position + " " + starting_position);
         position = -1;
         path = 0;
         canMove = false;
@@ -50,6 +51,7 @@ public class Piece : MonoBehaviour
     public void move() {
         if (currentPos != position) {
             if (position == -1) {
+                Debug.Log(transform.position + " " + starting_position);
                 transform.position = Vector2.MoveTowards(transform.position, starting_position,
                 moveSpeed * Time.deltaTime);
                 if (transform.position == starting_position) {
@@ -206,15 +208,6 @@ public class Piece : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Adjust collider to be within bounds of sprite
-        var sprite = FindObjectOfType<SpriteRenderer>();
-        var collider = FindObjectOfType<BoxCollider2D>();
-
-        collider.offset = new Vector2(0, 0);
-        collider.size = new Vector3(sprite.bounds.size.x / transform.lossyScale.x,
-                                     sprite.bounds.size.y / transform.lossyScale.y,
-                                     sprite.bounds.size.z / transform.lossyScale.z);
-
         if (!doneMoving){
             move();
         }
