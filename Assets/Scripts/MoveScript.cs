@@ -56,14 +56,10 @@ public class MoveScript : MonoBehaviour
                 moveNum = 5;
             }
             
-            if (moveNum != 0) {
+            if (moveNum != 0 || piece == null) {
                 piece.position = piece.position + moveNum;
+                piece.doneMoving = false;
                 descriptionText.text = $"You moved {moveNum} spaces!";
-
-                turnController.currentPlayer.GetComponent<Player>().numMoves -= 1;
-                if (turnController.currentPlayer.GetComponent<Player>().numMoves == 0) {
-                    turnController.switchTurns();
-                }
             }
         }
     }

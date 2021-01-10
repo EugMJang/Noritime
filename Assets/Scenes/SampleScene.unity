@@ -740,6 +740,7 @@ GameObject:
   - component: {fileID: 331826941}
   - component: {fileID: 331826943}
   - component: {fileID: 331826942}
+  - component: {fileID: 331826944}
   m_Layer: 0
   m_Name: red2
   m_TagString: RedPieces
@@ -826,7 +827,7 @@ MonoBehaviour:
   position: 0
   moveSpeed: 5
   canMove: 0
-  isFinished: 0
+  numPieces: 0
   path0:
   - {fileID: 1894540549}
   - {fileID: 251173864}
@@ -865,6 +866,7 @@ MonoBehaviour:
   - {fileID: 118523671}
   - {fileID: 2019370575}
   - {fileID: 784792234}
+  doneMoving: 0
 --- !u!61 &331826943
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -875,7 +877,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -891,6 +893,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6666667, y: 0.6666667}
   m_EdgeRadius: 0
+--- !u!50 &331826944
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331826939}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &465309441
 GameObject:
   m_ObjectHideFlags: 0
@@ -1041,6 +1064,7 @@ GameObject:
   - component: {fileID: 480147849}
   - component: {fileID: 480147851}
   - component: {fileID: 480147850}
+  - component: {fileID: 480147852}
   m_Layer: 0
   m_Name: red3
   m_TagString: RedPieces
@@ -1127,7 +1151,7 @@ MonoBehaviour:
   position: 0
   moveSpeed: 5
   canMove: 0
-  isFinished: 0
+  numPieces: 0
   path0:
   - {fileID: 1894540549}
   - {fileID: 251173864}
@@ -1166,6 +1190,7 @@ MonoBehaviour:
   - {fileID: 118523671}
   - {fileID: 2019370575}
   - {fileID: 784792234}
+  doneMoving: 0
 --- !u!61 &480147851
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1176,7 +1201,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1192,6 +1217,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6666667, y: 0.6666667}
   m_EdgeRadius: 0
+--- !u!50 &480147852
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480147847}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1830,6 +1876,7 @@ GameObject:
   - component: {fileID: 773455525}
   - component: {fileID: 773455527}
   - component: {fileID: 773455526}
+  - component: {fileID: 773455528}
   m_Layer: 0
   m_Name: blue2
   m_TagString: BluePieces
@@ -1846,7 +1893,7 @@ Transform:
   m_GameObject: {fileID: 773455523}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3.31, y: -3.7681801, z: 4.3331223}
-  m_LocalScale: {x: 0.67, y: 0.67, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1706237301}
   m_RootOrder: 1
@@ -1916,7 +1963,7 @@ MonoBehaviour:
   position: 0
   moveSpeed: 5
   canMove: 0
-  isFinished: 0
+  numPieces: 0
   path0:
   - {fileID: 1894540549}
   - {fileID: 251173864}
@@ -1955,6 +2002,7 @@ MonoBehaviour:
   - {fileID: 118523671}
   - {fileID: 2019370575}
   - {fileID: 784792234}
+  doneMoving: 0
 --- !u!61 &773455527
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1965,14 +2013,14 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.6666667, y: 0.6666667}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1981,6 +2029,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &773455528
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773455523}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &778259669
 GameObject:
   m_ObjectHideFlags: 0
@@ -2551,6 +2620,7 @@ GameObject:
   - component: {fileID: 1268627556}
   - component: {fileID: 1268627558}
   - component: {fileID: 1268627557}
+  - component: {fileID: 1268627559}
   m_Layer: 0
   m_Name: blue4
   m_TagString: BluePieces
@@ -2567,7 +2637,7 @@ Transform:
   m_GameObject: {fileID: 1268627554}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3.31, y: -4.61, z: 4.3331223}
-  m_LocalScale: {x: 0.67, y: 0.67, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1706237301}
   m_RootOrder: 3
@@ -2637,7 +2707,7 @@ MonoBehaviour:
   position: 0
   moveSpeed: 5
   canMove: 0
-  isFinished: 0
+  numPieces: 0
   path0:
   - {fileID: 1894540549}
   - {fileID: 251173864}
@@ -2676,6 +2746,7 @@ MonoBehaviour:
   - {fileID: 118523671}
   - {fileID: 2019370575}
   - {fileID: 784792234}
+  doneMoving: 0
 --- !u!61 &1268627558
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2686,14 +2757,14 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.6666667, y: 0.6666667}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2702,6 +2773,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &1268627559
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268627554}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1278424222
 GameObject:
   m_ObjectHideFlags: 0
@@ -2714,6 +2806,7 @@ GameObject:
   - component: {fileID: 1278424224}
   - component: {fileID: 1278424226}
   - component: {fileID: 1278424225}
+  - component: {fileID: 1278424227}
   m_Layer: 0
   m_Name: blue3
   m_TagString: BluePieces
@@ -2730,7 +2823,7 @@ Transform:
   m_GameObject: {fileID: 1278424222}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.5132763, y: -4.61, z: 4.3331223}
-  m_LocalScale: {x: 0.67, y: 0.67, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1706237301}
   m_RootOrder: 2
@@ -2800,7 +2893,7 @@ MonoBehaviour:
   position: 0
   moveSpeed: 5
   canMove: 0
-  isFinished: 0
+  numPieces: 0
   path0:
   - {fileID: 1894540549}
   - {fileID: 251173864}
@@ -2839,6 +2932,7 @@ MonoBehaviour:
   - {fileID: 118523671}
   - {fileID: 2019370575}
   - {fileID: 784792234}
+  doneMoving: 0
 --- !u!61 &1278424226
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2849,14 +2943,14 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.6666667, y: 0.6666667}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2865,6 +2959,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &1278424227
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278424222}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1300982464
 GameObject:
   m_ObjectHideFlags: 0
@@ -3132,6 +3247,7 @@ GameObject:
   - component: {fileID: 1407942068}
   - component: {fileID: 1407942071}
   - component: {fileID: 1407942070}
+  - component: {fileID: 1407942072}
   m_Layer: 0
   m_Name: red1
   m_TagString: RedPieces
@@ -3218,7 +3334,7 @@ MonoBehaviour:
   position: 0
   moveSpeed: 5
   canMove: 0
-  isFinished: 0
+  numPieces: 0
   path0:
   - {fileID: 1894540549}
   - {fileID: 251173864}
@@ -3257,6 +3373,7 @@ MonoBehaviour:
   - {fileID: 118523671}
   - {fileID: 2019370575}
   - {fileID: 784792234}
+  doneMoving: 0
 --- !u!61 &1407942071
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3267,7 +3384,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -3283,6 +3400,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6666667, y: 0.6666667}
   m_EdgeRadius: 0
+--- !u!50 &1407942072
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407942067}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1424432329
 GameObject:
   m_ObjectHideFlags: 0
@@ -3801,6 +3939,7 @@ GameObject:
   - component: {fileID: 1616859455}
   - component: {fileID: 1616859458}
   - component: {fileID: 1616859457}
+  - component: {fileID: 1616859459}
   m_Layer: 0
   m_Name: blue1
   m_TagString: BluePieces
@@ -3867,7 +4006,7 @@ Transform:
   m_GameObject: {fileID: 1616859454}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.5132763, y: -3.7681801, z: 4.3331223}
-  m_LocalScale: {x: 0.67, y: 0.67, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1706237301}
   m_RootOrder: 0
@@ -3887,7 +4026,7 @@ MonoBehaviour:
   position: 0
   moveSpeed: 5
   canMove: 0
-  isFinished: 0
+  numPieces: 0
   path0:
   - {fileID: 1894540549}
   - {fileID: 251173864}
@@ -3926,6 +4065,7 @@ MonoBehaviour:
   - {fileID: 118523671}
   - {fileID: 2019370575}
   - {fileID: 784792234}
+  doneMoving: 0
 --- !u!61 &1616859458
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3936,14 +4076,14 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.6666667, y: 0.6666667}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3952,6 +4092,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &1616859459
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616859454}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1656833214
 GameObject:
   m_ObjectHideFlags: 0
@@ -5079,6 +5240,7 @@ GameObject:
   - component: {fileID: 2099552844}
   - component: {fileID: 2099552846}
   - component: {fileID: 2099552845}
+  - component: {fileID: 2099552847}
   m_Layer: 0
   m_Name: red4
   m_TagString: RedPieces
@@ -5165,7 +5327,7 @@ MonoBehaviour:
   position: 0
   moveSpeed: 5
   canMove: 0
-  isFinished: 0
+  numPieces: 0
   path0:
   - {fileID: 1894540549}
   - {fileID: 251173864}
@@ -5204,6 +5366,7 @@ MonoBehaviour:
   - {fileID: 118523671}
   - {fileID: 2019370575}
   - {fileID: 784792234}
+  doneMoving: 0
 --- !u!61 &2099552846
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5214,7 +5377,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -5230,6 +5393,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6666667, y: 0.6666667}
   m_EdgeRadius: 0
+--- !u!50 &2099552847
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099552842}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2122030042
 GameObject:
   m_ObjectHideFlags: 0

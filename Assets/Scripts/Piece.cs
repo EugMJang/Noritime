@@ -10,16 +10,14 @@ public class Piece : MonoBehaviour
     public float moveSpeed;
     private int path;
     public bool canMove;
-
-    public bool isFinished;
-
+    public int numPieces;
 
     public Transform[] path0;
     public Transform[] path1;
     public Transform[] path2;
     public Transform[] path3;
     
-    private Vector2 starting_position;
+    private Vector3 starting_position;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +25,7 @@ public class Piece : MonoBehaviour
         position = -1;
         path = 0;
         canMove = false;
+        numPieces = 1;
     }
 
     public void highlight(bool doHighlight) {
@@ -39,9 +38,21 @@ public class Piece : MonoBehaviour
 
     private int currIndex = -1;
     private int currentPos = -1;
+    [HideInInspector]
+    public bool doneMoving = false;
     public void move() {
-        if (!isFinished && currentPos != position) {
-            if (position < currentPos) {
+        if (currentPos != position) {
+            if (position == -1) {
+                transform.position = Vector2.MoveTowards(transform.position, starting_position,
+                moveSpeed * Time.deltaTime);
+                if (transform.position == starting_position) {
+                    currentPos = -1;
+                    currIndex = -1;
+                    path = 0;
+                    doneMoving = false;
+                    return;
+                }
+            } else if (position < currentPos) {
                 if (currIndex == 0) {
                     if (path == 1) {
                         path = 0;
@@ -74,7 +85,7 @@ public class Piece : MonoBehaviour
                         path = 0;
                         currIndex = 13;
                     } else {
-                        isFinished = true;
+                        Destroy(gameObject);
                         Debug.Log("Finished!");
                         return;
                     }
@@ -88,7 +99,7 @@ public class Piece : MonoBehaviour
                     currIndex++;
                 }
             }
-        } else {
+        } else if (position != -1) {
             if (position == 4 && path == 0) {
                 path = 1;
                 currIndex = -1;
@@ -99,6 +110,11 @@ public class Piece : MonoBehaviour
                 path = 3;
                 currIndex = -1;
             }
+            turnController.currentPlayer.GetComponent<Player>().numMoves -= 1;
+            if (turnController.currentPlayer.GetComponent<Player>().numMoves == 0) {
+                turnController.switchTurns();
+            }
+            doneMoving = true;
         }
     }
     public Transform[] currentPath() {
@@ -117,27 +133,31 @@ public class Piece : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (gameObject.tag == "BluePieces" && other.tag == "BluePieces") {
-            Debug.Log("hit detected");
-            Destroy(other.gameObject);
-        }
-        if (gameObject.tag == "RedPieces" && other.tag == "RedPieces") {
-            Debug.Log("hit detected");
-            Destroy(other.gameObject);
-        }
-        if (gameObject.tag == "RedPieces" && other.tag == "BluePieces") {
-            Debug.Log("hit detected");
-            Destroy(other.gameObject);
-        }
-        if (gameObject.tag == "BluePieces" && other.tag == "RedPieces") {
-            Debug.Log("hit detected");
-            Destroy(other.gameObject);
+        if (gameObject == turnController.currentPlayer.GetComponent<Player>().selectedPiece) {
+            if (other.gameObject.GetComponent<Piece>().position != -1) {
+                if (gameObject.tag == other.tag) {
+                    Debug.Log("hit detected");
+                    transform.SetParent(other.transform);
+                    gameObject.SetActive(false);
+                }
+                else {
+                    if (position == other.gameObject.GetComponent<Piece>().position) {
+                        Debug.Log("hit detected");
+                        other.gameObject.GetComponent<Piece>().position = -1;
+                        other.gameObject.GetComponent<Piece>().doneMoving = false;
+                        turnController.currentPlayer.GetComponent<Player>().numMoves += 1;
+                        turnController.currentPlayer.GetComponent<Player>().canRoll = true;
+                    }
+                }
+            }
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        move();
+        if (!doneMoving){
+            move();
+        }
     }
 }
