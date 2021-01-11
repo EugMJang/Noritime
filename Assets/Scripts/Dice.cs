@@ -117,6 +117,8 @@ public class Dice : MonoBehaviour {
             MoveScript.add(4);
         } else if (Input.GetKey(KeyCode.Alpha5)) {
             MoveScript.add(5);
+        } else if (Input.GetKey(KeyCode.Alpha6)) {
+            MoveScript.add(-1);
         }
         */
     }

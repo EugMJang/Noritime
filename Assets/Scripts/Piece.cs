@@ -26,7 +26,7 @@ public class Piece : MonoBehaviour
     void Start()
     {
         starting_position = transform.position;
-        position = -1;
+        position = -2;
         path = 0;
         canMove = false;
         numPieces = 1;
@@ -49,7 +49,7 @@ public class Piece : MonoBehaviour
     public bool doneMoving = false;
     public void move() {
         if (currentPos != position) {
-            if (position == -1) {
+            if (position == -2) {
                 transform.position = Vector2.MoveTowards(transform.position, starting_position,
                 moveSpeed * Time.deltaTime);
                 if (transform.position == starting_position) {
@@ -91,6 +91,11 @@ public class Piece : MonoBehaviour
                         currentPos += 4;
                         path = 0;
                         currIndex = 13;
+                    } else if (path == 2) {
+                        position = 19;
+                        currentPos = 18;
+                        path = 0;
+                        currIndex = 18;
                     } else if (path == 3) {
                         position = 19;
                         currentPos = 19;
@@ -120,7 +125,7 @@ public class Piece : MonoBehaviour
                     currIndex++;
                 }
             }
-        } else if (position != -1) {
+        } else if (position != -2) {
             turnController.currentPlayer.GetComponent<Player>().numMoves -= 1;
             if (turnController.currentPlayer.GetComponent<Player>().numMoves == 0) {
                 turnController.switchTurns();
@@ -157,8 +162,6 @@ public class Piece : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(position + " " + other.gameObject.GetComponent<Piece>().position);
-        Debug.Log(path + " " + other.gameObject.GetComponent<Piece>().path);
         if (gameObject == turnController.currentPlayer.GetComponent<Player>().selectedPiece) {
             if (other.gameObject.GetComponent<Piece>().position != -1) {
                 if (gameObject.tag == other.tag) {
@@ -177,7 +180,7 @@ public class Piece : MonoBehaviour
                     if (position == other.gameObject.GetComponent<Piece>().position && path == other.gameObject.GetComponent<Piece>().path) {
                         for (int i = 0; i < other.transform.childCount; i++) {
                             Transform child = other.transform.GetChild(i);
-                            child.gameObject.GetComponent<Piece>().position = -1;
+                            child.gameObject.GetComponent<Piece>().position = -2;
                             child.gameObject.GetComponent<Piece>().doneMoving = false;
                             child.gameObject.GetComponent<Piece>().numPieces = 1;
                             child.gameObject.SetActive(true);
@@ -189,7 +192,7 @@ public class Piece : MonoBehaviour
                             i--;
                         }
                         other.gameObject.GetComponent<Piece>().numPieces = 1;
-                        other.gameObject.GetComponent<Piece>().position = -1;
+                        other.gameObject.GetComponent<Piece>().position = -2;
                         other.gameObject.GetComponent<Piece>().doneMoving = false;
                         if (MoveScript.moveNum != 4 && MoveScript.moveNum != 5) {
                             turnController.currentPlayer.GetComponent<Player>().numMoves += 1;

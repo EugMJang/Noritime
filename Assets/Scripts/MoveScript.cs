@@ -59,7 +59,11 @@ public class MoveScript : MonoBehaviour
             
             if (moveNum != 0) {
                 piece.changePath();
-                piece.position = piece.position + moveNum;
+                if (piece.position != -2) {
+                    piece.position = piece.position + moveNum;
+                } else {
+                    piece.position = moveNum - 1;
+                }
                 piece.doneMoving = false;
                 descriptionText.text = $"You moved {moveNum} spaces!";
             }
