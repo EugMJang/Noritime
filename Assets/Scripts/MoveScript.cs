@@ -58,7 +58,9 @@ public class MoveScript : MonoBehaviour
             }
             
             if (moveNum != 0) {
-                piece.changePath();
+                if (moveNum != -1) {
+                    piece.changePath();
+                }
                 if (piece.position != -2) {
                     piece.position = piece.position + moveNum;
                 } else {

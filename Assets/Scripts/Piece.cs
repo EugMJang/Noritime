@@ -92,12 +92,12 @@ public class Piece : MonoBehaviour
                         path = 0;
                         currIndex = 13;
                     } else if (path == 2) {
-                        position = 19;
+                        position += 8;
                         currentPos = 18;
                         path = 0;
                         currIndex = 18;
                     } else if (path == 3) {
-                        position = 19;
+                        position += 5;
                         currentPos = 18;
                         path = 0;
                         currIndex = 18;

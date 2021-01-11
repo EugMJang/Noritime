@@ -106,7 +106,7 @@ public class Dice : MonoBehaviour {
     }
 
     void Update() {
-        /*
+        ///*
         if (Input.GetKey(KeyCode.Alpha1)) {
             MoveScript.add(1);
         } else if (Input.GetKey(KeyCode.Alpha2)) {
@@ -120,7 +120,7 @@ public class Dice : MonoBehaviour {
         } else if (Input.GetKey(KeyCode.Alpha6)) {
             MoveScript.add(-1);
         }
-        */
+        //*/
     }
 }
 
