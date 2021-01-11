@@ -98,9 +98,9 @@ public class Piece : MonoBehaviour
                         currIndex = 18;
                     } else if (path == 3) {
                         position = 19;
-                        currentPos = 19;
+                        currentPos = 18;
                         path = 0;
-                        currIndex = 19;
+                        currIndex = 18;
                     } else {
                         if (gameObject.tag == "RedPieces") {
                             Score.redScore += numPieces;
